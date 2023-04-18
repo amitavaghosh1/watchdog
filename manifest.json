@@ -21,5 +21,6 @@
   "action": {
       "default_popup": "popup.html",
       "default_title": "Network Request Recorder"
-  }
+  },
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA143OaZ9k4y2iClobsaOfQVLunOM6W9illsDukefsZp9TxGWK5ugk2CijKgRBM+nh8UQSGFuxIjAPJ4sJxMb8upE1gcjIpITCbL4lFJI2eAsl6et18eZutl9UL0HIIevmond0TgTv5JvM7itbWHHWWUb+J5RJUZ6TPhqklvFufwsus7wgO7hYvlz8duPNhiMBzrWqeZPOQNd+seVsKjdz2StMRLA4RpgO/9ZGF+Kj8lreQaVnSrw+y7KtETfpO9gdPrNIS+tkqtJkSP2zXfhrMdMqwI3vR8etzYVVopRFeOhG043Al+YebymDRHR6XeEwlAwzARycFv7WngfH3/vUTwIDAQAB"
 }
