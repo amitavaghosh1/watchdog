@@ -1,6 +1,4 @@
-current_dir = $(shell pwd)
-
 build:
+	zip watchdog.zip -r assets/ background.js manifest.json popup.html popup.js
 	mkdir -p dist
-	chrome --headless --pack-extension=$(current_dir) --pack-extension-key=$(current_dir)/../watchdog.pem	
-	zip $(current_dir)/dist/watchdog.crx.zip $(current_dir)/../watchdog.crx
+	zip watchdog.zip dist/watchdog.crx.zip
