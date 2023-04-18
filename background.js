@@ -60,7 +60,7 @@ function handleCapture(message, _, sendResponse) {
                 return
             }
 
-            sendResponse({ data: JSON.stringify(data) })
+            sendResponse({ data: JSON.stringify(data, null, 2) })
             requestResponseMap = {}
         })
     } else if (message.action == "reset_state") {
