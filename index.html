@@ -10,9 +10,7 @@
             }
             .main {
                 width: 100vw;
-                height: 80vh;
                 font-size: 16px;
-                text-align: center;
                 margin-bottom: 12px;
             }
             .banner {
@@ -50,10 +48,20 @@
                 <h1>watchdog</h1>
                 <p>Records your network request</p>
             </header>
-            <form action="./dist/watchdog.crx" method="GET" class="space-top">
-                <button id="download">Install the chrome extension</button>
-            </div>
         </main>
-        <script src="./popup.js"></script>
+        <section style="padding-left: 20px">
+            <div style="text-align:center">
+                <form action="./dist/watchdog.crx" method="GET" class="space-top"> 
+                    <button id="download">Install the chrome extension</button>
+                </form>
+            </div>
+            <div class="space-top">
+                After downloading the crx file. 
+                <ul>
+                    <li>Go to <a href="chrome://extensions">chrome://extensions</a>.</li>
+                    <li>On the top right, enable <i><b>Developer Mode</b></i></li>
+                    <li>Drag and drop the downloaded file. And click on <i><b>Add Extension</b></i></li>
+            </div>
+        </section>
     </body>
 </html>
