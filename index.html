@@ -29,7 +29,10 @@
             }
 
             #download {
+                display: inline-block;
+                margin-top: 20px;
                 padding: 8px 12px;
+                text-decoration: none;
                 border: none;
                 border-radius: 4px;
                 background-color: rgb(6, 151, 162);
@@ -51,12 +54,12 @@
         </main>
         <section style="padding-left: 20px">
             <div style="text-align:center">
-                <form action="./dist/watchdog.crx" method="GET" class="space-top"> 
-                    <button id="download">Install the chrome extension</button>
-                </form>
+                <a href="./dist/watchdog.crx.zip" id="download" class="space-top" download="watchdog">
+                    Install the chrome extension
+                </a>
             </div>
             <div class="space-top">
-                After downloading the crx file. 
+                After downloading, unpack the zip file to get the crx file. 
                 <ul>
                     <li>Go to <a href="chrome://extensions">chrome://extensions</a>.</li>
                     <li>On the top right, enable <i><b>Developer Mode</b></i></li>
