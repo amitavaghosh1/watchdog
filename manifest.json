@@ -1,0 +1,25 @@
+{
+  "name": "watchdog",
+  "description": "record requests in background",
+  "version": "1.0",
+  "manifest_version": 3,
+  "icons": {
+    "48": "./assets/recorder_48.png",
+    "128": "./assets/recorder_128.png"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "host_permissions": ["http://*/*", "https://*/*"],
+  "permissions": [
+    "scripting",
+    "storage",
+    "downloads",
+    "tabCapture",
+    "webRequest"
+  ],
+  "action": {
+      "default_popup": "popup.html",
+      "default_title": "Network Request Recorder"
+  }
+}
