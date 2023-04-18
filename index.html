@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Network Recorder</title>
+        <style>
+            body {
+                margin: 0;
+                padding: 0;
+            }
+            .main {
+                width: 100vw;
+                height: 80vh;
+                font-size: 16px;
+                text-align: center;
+                margin-bottom: 12px;
+            }
+            .banner {
+                background:rgb(6, 151, 162);
+                color: #fff;
+            }
+            .space-top {
+                margin-top: 2em;
+            }
+
+            #header {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: space-between;
+            }
+
+            #download {
+                padding: 8px 12px;
+                border: none;
+                border-radius: 4px;
+                background-color: rgb(6, 151, 162);
+                color: #fff;
+                transition: all 0.2s ease;
+            }
+
+            #download:hover {
+                background-color: rgb(11, 155, 165);
+            }
+        </style>
+    </head>
+    <body>
+        <main class="main">
+            <header id="header" class="banner">
+                <h1>watchdog</h1>
+                <p>Records your network request</p>
+            </header>
+            <form action="./dist/watchdog.crx" method="GET" class="space-top">
+                <button id="download">Install the chrome extension</button>
+            </div>
+        </main>
+        <script src="./popup.js"></script>
+    </body>
+</html>
