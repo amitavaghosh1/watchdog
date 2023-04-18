@@ -63,6 +63,10 @@ function handleCapture(message, _, sendResponse) {
             sendResponse({ data: JSON.stringify(data) })
             requestResponseMap = {}
         })
+    } else if (message.action == "reset_state") {
+        capturing(false).then(data => {
+            sendResponse({ capturing: data.capturing })
+        })
     }
 
     return true

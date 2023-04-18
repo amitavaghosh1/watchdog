@@ -3,49 +3,62 @@ function $(el) {
 }
 
 var headerEl = $("#header")
-var toggleEl = $("#toggle")
+var startEl = $("#start")
+var stopEl = $("#stop")
 var stat = $("#status");
 
 function toggleRecording(prev_state) {
-    if (prev_state == "start") {
-        headerEl.className = "record_on"
-    } else {
-        headerEl.className = "record_off"
-    }
-}
+    // if (prev_state == "start") {
+    //     headerEl.className = "record_on"
+    // } else {
+    //     headerEl.className = "record_off"
+    // }
+    //
 
-function toggleButton(prev_state) {
-    if (prev_state == "start") {
-        toggleEl.dataset.toggle = "stop";
-        toggleEl.innerHTML = "Stop";
-    } else {
-        toggleEl.dataset.toggle = "start";
-        toggleEl.innerHTML = "Start";
-    }
-}
+    withToggleState(function(message) {
+        let recording = message && message.capturing;
 
-toggleEl.addEventListener("click", function() {
-    var toggleState = toggleEl.dataset.toggle;
+        if (recording === undefined) {
+            headerEl.className = "record_off"
+            stat.innerHTML = ""
+            return
+        }
 
-    if (toggleState == "start") {
-        chrome.runtime.sendMessage({ action: "start" }, () => {
+        if (recording) {
+            headerEl.className = "record_on"
             stat.innerHTML = "capturing"
-        });
+        } else {
+            headerEl.className = "record_off"
+            stat.innerHTML = "done"
+        }
+    })
+}
 
-    } else if (toggleState == "stop") {
-        chrome.runtime.sendMessage({ action: "stop" }, (response) => {
-            stat.innerHTML = "done";
-            setTimeout(() => {
-                stat.innerHTML = ""
-            }, 2000)
-            processResponse(response)
-        });
-    }
+stopEl.addEventListener("click", function() {
+    chrome.runtime.sendMessage({ action: "stop" }, (response) => {
+        stat.innerHTML = "done";
+        setTimeout(() => {
+            stat.innerHTML = ""
+        }, 2000)
+        processResponse(response)
+    });
 
-    toggleButton(toggleState)
-    toggleRecording(toggleState)
-
+    setTimeout(() => {
+        toggleRecording("stop")
+    }, 100)
 })
+
+startEl.addEventListener("click", function() {
+    chrome.runtime.sendMessage({ action: "start" }, () => {
+        stat.innerHTML = "capturing"
+    });
+
+
+    setTimeout(() => {
+        toggleRecording("start")
+    }, 100)
+})
+
 
 function processResponse(response) {
     if (!response) {
@@ -66,3 +79,14 @@ function processResponse(response) {
         filename: 'trace_logs.json'
     })
 }
+
+window.onload = function() {
+    toggleRecording("")
+}
+
+function withToggleState(cb) {
+    chrome.storage.local.get(["capturing"], function(resp) {
+        cb(resp)
+    })
+}
+
