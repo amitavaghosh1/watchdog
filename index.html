@@ -31,6 +31,14 @@
             #download {
                 display: inline-block;
                 margin-top: 20px;
+                
+            }
+
+            .link-button:hover {
+                background-color: rgb(11, 155, 165);
+            }
+
+            .link-button {
                 padding: 8px 12px;
                 text-decoration: none;
                 border: none;
@@ -38,10 +46,6 @@
                 background-color: rgb(6, 151, 162);
                 color: #fff;
                 transition: all 0.2s ease;
-            }
-
-            #download:hover {
-                background-color: rgb(11, 155, 165);
             }
         </style>
     </head>
@@ -54,7 +58,7 @@
         </main>
         <section style="padding-left: 20px">
             <div style="text-align:center">
-                <a href="./dist/watchdog.crx.zip" id="download" class="space-top" download="watchdog">
+                <a href="./dist/watchdog.crx.zip" id="download" class="space-top link-button" download="watchdog">
                     Download the chrome extension
                 </a>
             </div>
@@ -65,6 +69,15 @@
                     <li>On the top right, enable <i><b>Developer Mode</b></i></li>
                     <li>Drag and drop the downloaded file. And click on <i><b>Add Extension</b></i></li>
                 </ul>
+            </div>
+
+            <div class="space-top">
+                You might consider adding a 
+                <a
+                  href="https://chrome.google.com/webstore/detail/json-viewer/gbmdgpbipfallnflgajpaliibnhdgobh/related"
+                >
+                    JSON Viewer Extension For Chrome
+                </a>
             </div>
         </section>
     </body>
